@@ -23,16 +23,21 @@ def maak_bolletjes():
 
 maak_bolletjes()
 
-#Oefening 2
+#Oefening 2 + 3
 exercise_seperator(2)
 
 class Hoorntjes:
     def __init__(self):
         self.bolletjes = []
+        self.maximum_bolletjes = 2
+
 
     def bolletjes_toevoegen(self, *nieuwe_bolletjes):
-        for singleB in nieuwe_bolletjes:
-            self.bolletjes.append(singleB)
+        if  len(self.bolletjes) <= self.maximum_bolletjes:
+            for singleB in nieuwe_bolletjes:
+                self.bolletjes.append(singleB)
+        else:
+            pass
     
     def single_bol_toevoegen(self, nieuwe_bolletjes):
         self.bolletjes.append(nieuwe_bolletjes)
