@@ -23,6 +23,23 @@ class Papegaai(Dier):
     def __init__(self,kleur):
         super(Papegaai,self).__init__(2,kleur)
 
+class Kooi:
+    def __init__(self,ID):
+        self.ID = ID
+        self.dieren = []
+        
+    def voeg_dier_toe(self,dier):
+        self.dieren.append(dier)
+
+    def voeg_dieren_toe(self,*dier):
+        for d in dier:
+            self.dieren.append(d)
+    
+    def __repr__(self):
+        outp = f"Kooi {self.ID}\n"
+        outp += '\n'.join('\t' + str(d) for d in self.dieren)
+        return outp
+
 animal1 = Wolf("Grijs")
 animal2 = Wolf("Paars")
 
@@ -43,3 +60,25 @@ print(animal5)
 print(animal6)
 print(animal7)
 print(animal8)
+
+print()
+print("Kooien")
+print("--------")
+print()
+
+kooi1 = Kooi(1)
+kooi2 = Kooi(2)
+kooi3 = Kooi(3)
+
+kooi1.voeg_dier_toe(animal3)
+kooi1.voeg_dieren_toe(animal1,animal2) 
+print(kooi1)
+print()
+
+kooi2.voeg_dier_toe(animal4)
+kooi2.voeg_dieren_toe(animal5) 
+print(kooi2)
+print()
+
+kooi3.voeg_dier_toe(animal6)
+print(kooi3)
